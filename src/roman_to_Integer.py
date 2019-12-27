@@ -66,14 +66,11 @@ class Solution(object):
 #
 #         # subtraction rule
 #
-#         if 'CM' in s:   num -= 200
-#         if 'CD' in s:   num -= 200
+#         if 'CM' in s or 'CD' in s:   num -= 200
 #
-#         if 'XC' in s:   num -= 20
-#         if 'XL' in s:   num -= 20
+#         if 'XC' in s or 'XL' in s:   num -= 20
 #
-#         if 'IX' in s:   num -= 2
-#         if 'IV' in s:   num -= 2
+#         if 'IX' in s or 'IV' in s:   num -= 2
 #
 #         return num
 
