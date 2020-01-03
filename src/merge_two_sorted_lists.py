@@ -7,15 +7,11 @@
 # Output: 1->1->2->3->4->4
 
 # Definition for singly-linked list.
-class ListNode(object):
-    def __init__(self, x):
-        self.val = x
-        self.next = None
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
 
-    head = node = ListNode(0)
-    node.next = ListNode(2)
-    print(node)
-    print
 
 class Solution(object):
     def mergeTwoLists(self, l1, l2):
@@ -23,41 +19,28 @@ class Solution(object):
         :type l1: ListNode
         :type l2: ListNode
         :rtype: ListNode
-        """
-        # arr = []
-        # merged_list = ListNode(None)
-        # if l1 is None and l2 is None:
-        #     # merged_list = ListNode(None)
-        #     return merged_list
-        #
-        # stop = False
-        # while not stop:
-        #     if l1 is None and l2 is None:
-        #         stop = True
-        #     if l1.val <= l2.val:
-        #         arr.append(l1.val)
-        #         arr.append(l2.val)
-        #     else:
-        #         arr.append(l2.val)
-        #         arr.append(l1.val)
-        #     l1 = l1.next
-        #     l2 = l2.next
-        #
-        # pop = arr.pop()
-        # merged_list.val = pop
-        # while len(arr) != 0:
-        #     pass
 
-# l1_3 = ListNode(4)
-# l1_2 = ListNode(2)
-# l1 = ListNode(1)
-# l1.next = l1_2
-# l1_2.next = l1_3
-#
-# l2_3 = ListNode(4)
-# l2_2 = ListNode(3)
-# l2 = ListNode(1)
-# l2.next = l2_2
-# l2_2.next = l2_3
-#
-# print(Solution().mergeTwoLists(l1, l2))
+        """
+        # Initialize list with value None
+
+        head = tail = ListNode(None)
+
+        # until l1 and l2 are not None
+        while l1 and l2:
+            if l1.val > l2.val:
+                tail.next = l2
+                l2 = l2.next
+            else:
+                tail.next = l1
+                l1 = l1.next
+
+            # tail is shortened but head has its nodes referenced.
+            tail = tail.next
+
+        # attach remaining nodes from remaining list
+        if l1:
+            tail.next = l1
+        if l2:
+            tail.next = l2
+
+        return head.next
