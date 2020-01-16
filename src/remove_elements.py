@@ -52,23 +52,17 @@ class Solution(object):
         if not nums:
             return 0
 
-        j = 0
-        i = 0
-        while j < len(nums):
-            print(i, j)
-            if nums[j] == val:
-                j += 1
-                # print(nums)
-            else:
-                nums[i], nums[j] = nums[j], nums[i]
-                print(nums)
+        length = len(nums)
+        i, j = 0, 0
+        while j < length:
+            if nums[j] != val:
+                nums[i] = nums[j]
                 i += 1
-
-        # print(nums, i)
+            j += 1
         return i
 
 
-m = [1, 2, 3, 3, 4, 4, 4, 5, 5, 6, 6]
-# m = [4, 1, 3, 4]
+m = [1, 2, 3, 3, 5, 4, 4, 4, 5, 6, 6]
 obj = Solution()
-print(obj.remove_element(m, 4))
+o = obj.remove_element(m, 4)
+print(o)
